@@ -1,0 +1,27 @@
+<mat-card class="mat-elevation-z2" class="container">
+  <form class="page-container" [formGroup]="changePassword">
+    <div fxLayout="row" fxLayoutGap="5%" fxLayoutAlign="center center" fxLayoutGap.lt-md="0" fxLayout.lt-md="column">
+      <div fxFlex="50%" fxLayout="row" fxLayout.lt-md="column">
+        <mat-label fxFlex="40%">Email</mat-label>
+        <mat-form-field fxFlex="60%" appearance="outline">
+          <input matInput formControlName="email">
+
+        </mat-form-field>
+      </div>
+    </div>
+    <div fxLayout="row" fxLayoutGap="5%" fxLayoutAlign="center center" fxLayoutGap.lt-md="0" fxLayout.lt-md="column">
+      <div fxFlex="50%" fxLayout="row" fxLayout.lt-md="column">
+        <mat-label fxFlex="40%">Password</mat-label>
+        <mat-form-field fxFlex="60%" appearance="outline">
+          <input matInput formControlName="password">
+
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div fxLayoutAlign="center center">
+      <button mat-raised-button color="warn" (click)="onsubmit()">Login</button>
+    </div>
+   
+  </form>
+</mat-card>

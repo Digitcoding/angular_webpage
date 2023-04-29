@@ -1,0 +1,12 @@
+<div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="center center" class="container">
+  <button mat-raised-button (click)="openSnackBar()" routerLink="pipe" color="green">success</button>
+  <button mat-raised-button (click)="openSnackBar()" color="red" routerLink="multiform">Error</button>
+  <button mat-raised-button (click)="openSnackBar()" color="primary">Info</button>
+  <button mat-raised-button (click)="openSnackBar()" color="yellow">Warning</button>
+  <button mat-raised-button (click)="openSnackBar()" color="gray">Default</button>
+</div>
+<button mat-stroked-button (click)="openSnackBar()" aria-label="Show an example snack-bar">
+  Pizza party
+</button>
+<router-outlet></router-outlet>
+<!-- Observable practice -->

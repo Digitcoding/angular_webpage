@@ -1,0 +1,247 @@
+<div class="container">
+  <div class="page-container" fxFlex="100%">
+    <!-- first -->
+    <form *ngIf="EmployeeRegistration" [formGroup]="EmployeeRegistration">
+      <div fxLayout="row" fxLayoutGap="10px" fxLayout.lt-md="column">
+        <div fxFlex="50%" fxLayout.lt-md="column">
+          <mat-label fxFlex="40%">Employee Code</mat-label>
+          <mat-form-field appearance="outline" fxFlex="60%">
+            <input matInput formControlName="employeecode">
+            <mat-error *ngIf="EmployeeRegistration?.get('employeecode')?.hasError('required')">
+              {{message?.FIELD_REQUIRED}}
+            </mat-error>
+            <mat-error *ngIf="EmployeeRegistration?.get('employeecode')?.hasError('pattern')">
+              {{message?.INVALID_DATA}}
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div fxFlex="50%" fxLayout.lt-md="column">
+          <mat-label fxFlex="40%">First Name</mat-label>
+          <mat-form-field appearance="outline" fxFlex="60%">
+            <input matInput formControlName="firstname">
+          </mat-form-field>
+        </div>
+      </div>
+      <!-- second -->
+      <div fxLayout="row" fxLayoutGap="10px" fxLayout.lt-md="column" fxLayoutGap.lt-md="0px">
+        <div fxFlex="50%" fxLayout.lt-md="column">
+          <mat-label fxFlex="40%">Middle Name</mat-label>
+          <mat-form-field fxFlex="60%" appearance="outline">
+            <input matInput formControlName="middlename">
+            <mat-error *ngIf="EmployeeRegistration?.get('middlename')?.hasError('required')">
+              {{message?.FIELD_REQUIRED}}
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div fxFlex="50%" fxLayout.lt-md="column">
+          <mat-label fxFlex="40%">Last Name</mat-label>
+          <mat-form-field fxFlex="60%" appearance="outline">
+            <input matInput formControlName="lastname">
+          </mat-form-field>
+        </div>
+      </div>
+      <!-- third -->
+      <div fxLayout="row" fxLayoutGap="10px" fxLayout.lt-md="column">
+        <div fxFlex="50%" fxLayout.lt-md="column">
+          <mat-label fxFlex="40%">Email</mat-label>
+          <mat-form-field appearance="outline" fxFlex="60%">
+            <input matInput formControlName="email">
+            <mat-error *ngIf="EmployeeRegistration?.get('email')?.hasError('required')">
+              {{message?.FIELD_REQUIRED}}
+            </mat-error>
+            <mat-error *ngIf="EmployeeRegistration?.get('email')?.hasError('email')">
+              {{message?.EMAIL_FORMAT}}
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div fxFlex="50%" fxLayout.lt-md="column">
+          <mat-label fxFlex="40%">Alternate Email</mat-label>
+          <mat-form-field fxFlex="60%" appearance="outline">
+            <input matInput formControlName="altermail">
+            <mat-error *ngIf="EmployeeRegistration?.get('altermail')?.errors?.['mismatch']">
+              {{message?.ALTER_MAIL}}
+            </mat-error>
+            <mat-error *ngIf="EmployeeRegistration?.get('altermail')?.hasError('required')">
+              {{message?.FIELD_REQUIRED}}
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <!-- fourth -->
+      <div fxLayout="row" fxLayoutGap="10px" fxLayout.lt-md="column">
+        <div fxFlex="50%" fxLayout.lt-md="column">
+          <mat-label fxFlex="40%">Gender</mat-label>
+          <mat-form-field fxFlex="60%" appearance="outline">
+            <mat-select formControlName="gender">
+              <mat-option [value]="item?.gender" *ngFor="let item of Gender">
+                {{item?.gender}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <!-- <div fxFlex="50%" fxLayout.lt-md="column">
+          <mat-label fxFlex="40%">Marital Status</mat-label>
+          <mat-form-field fxFlex="60%" appearance="outline">
+            <mat-select formControlName="marital">
+              <mat-option [value]="item?.status" *ngFor="let item of MaritalStatus">
+                {{item?.status}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div> -->
+      </div>
+      <!-- fiveth -->
+      <div fxLayout="row" fxLayoutGap="10px" fxLayout.lt-md="column">
+        <!-- <div fxFlex="50%" fxLayout.lt-md="column">
+          <mat-label fxFlex="40%">Department</mat-label>
+          <mat-form-field fxFlex="60%" appearance="outline">
+            <mat-select formControlName="department">
+              <mat-option [value]="item?.status" *ngFor="let item of Department">
+                {{item?.status}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div> -->
+        <div fxFlex="50%" fxLayout.lt-md="column">
+          <mat-label fxFlex="40%">Designation</mat-label>
+          <mat-form-field fxFlex="60%" appearance="outline">
+            <mat-select formControlName="designationId">
+              <mat-option [value]="item?.id" *ngFor="let item of Designation">
+                {{item?.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <!-- sixth -->
+      <div fxLayout="row" fxLayoutGap="10px" fxLayout.lt-md="column">
+        <div fxFlex="50%" fxLayout.lt-md="column">
+          <mat-label fxFlex="40%">Date of Birth </mat-label>
+          <mat-form-field fxFlex="60%" appearance="outline">
+            <input matInput [matDatepicker]="picker1" formControlName="dob" [max]="todaydate">
+            <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+            <mat-error
+              *ngIf="EmployeeRegistration?.get('dob')?.hasError('required') && !EmployeeRegistration?.get('dob')?.hasError('matDatepickerParse') ">
+              {{message?.FIELD_REQUIRED}}
+            </mat-error>
+            <mat-error
+              *ngIf="EmployeeRegistration?.get('dob')?.hasError('matDatepickerParse') && EmployeeRegistration?.get('dob')?.hasError('required')  ">
+              {{message?.INVALID_DATA}}
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div fxFlex="50%" fxLayout.lt-md="column">
+          <mat-label fxFlex="40%">Date of Joining</mat-label>
+          <mat-form-field fxFlex="60%" appearance="outline">
+            <input matInput [matDatepicker]="picker2" formControlName="doj"
+              [min]="this.EmployeeRegistration.get('dob')?.value">
+            <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+            <mat-error
+              *ngIf="EmployeeRegistration?.get('dob')?.hasError('required') && !EmployeeRegistration?.get('dob')?.hasError('matDatepickerParse') ">
+              {{message?.FIELD_REQUIRED}}
+            </mat-error>
+            <mat-error
+              *ngIf="EmployeeRegistration?.get('dob')?.hasError('matDatepickerParse') && EmployeeRegistration?.get('dob')?.hasError('required')  ">
+              {{message?.INVALID_DATA}}
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <!-- seven -->
+      <!-- <div fxLayout="row" fxLayoutGap="10px" fxLayout.lt-md="column">
+        <div fxFlex="50%" fxLayout.lt-md="column">
+          <mat-label fxFlex="40%">Employee Type</mat-label>
+          <mat-form-field fxFlex="60%" appearance="outline">
+            <mat-select formControlName="emptype">
+              <mat-option [value]="item?.status" *ngFor="let item of EmpType">
+                {{item?.status}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div fxFlex="50%" fxLayout.lt-md="column">
+          <mat-label fxFlex="40%">Employee Category</mat-label>
+          <mat-form-field fxFlex="60%" appearance="outline">
+            <mat-select formControlName="empcategory">
+              <mat-option [value]="item?.status" *ngFor="let item of EmpCategory">
+                {{item?.status}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div> -->
+      <!-- eight -->
+      <div fxLayout="row" fxLayoutGap="10px" fxLayout.lt-md="column">
+        <div fxFlex="50%" fxLayout.lt-md="column">
+          <mat-label fxFlex="40%">Role</mat-label>
+          <mat-form-field fxFlex="60%" appearance="outline">
+            <mat-select formControlName="roleId">
+              <mat-option [value]="item?.id" *ngFor="let item of Role">
+                {{item?.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div fxFlex="50%" fxLayout.lt-md="column">
+          <mat-label fxFlex="40%">Password</mat-label>
+
+          <mat-form-field fxFlex="60%" appearance="outline">
+            <input matInput formControlName="password">
+          </mat-form-field>
+        
+        </div>
+      </div>
+      <!-- nine -->
+      <!-- <div fxLayout="row" fxLayoutGap="10px" fxLayout.lt-md="column">
+        <div fxFlex="50%" fxLayout.lt-md="column">
+          <mat-label fxFlex="40%">Office Location</mat-label>
+          <mat-form-field fxFlex="60%" appearance="outline">
+            <mat-select formControlName="location">
+              <mat-option [value]="item?.status" *ngFor="let item of Location">
+                {{item?.status}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div fxFlex="50%" fxLayout.lt-md="column">
+          <mat-label fxFlex="40%">Holiday Calendar</mat-label>
+          <mat-form-field fxFlex="60%" appearance="outline">
+            <mat-select formControlName="holiday">
+              <mat-option [value]="item?.status" *ngFor="let item of Holiday">
+                {{item?.status}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div> 
+      </div> -->
+      <!-- ten -->
+      <!-- <div fxLayout="row" fxLayoutGap="10px" fxLayout.lt-md="column">
+        <div fxFlex="50%" fxLayout.lt-md="column">
+          <mat-label fxFlex="40%">Ethinicity</mat-label>
+          <mat-form-field fxFlex="60%" appearance="outline">
+            <mat-select formControlName="ethinicity">
+              <mat-option [value]="item?.status" *ngFor="let item of Ethinicity">
+                {{item?.status}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div fxFlex="50%" fxLayout.lt-md="column">
+          <mat-label fxFlex="40%">Notice Period</mat-label>
+          <mat-form-field fxFlex="60%" appearance="outline">
+            <mat-select formControlName="noticeperiod">
+              <mat-option [value]="item?.status" *ngFor="let item of NoticeBoard">
+                {{item?.status}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div> -->
+    </form>
+    <div fxLayoutAlign="center center">
+      <button mat-raised-button color="primary" (click)="onsubmit()">{{ update ?'Update':'Submit'}}</button>
+    </div>
+  </div>
+</div>

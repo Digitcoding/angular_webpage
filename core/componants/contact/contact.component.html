@@ -1,0 +1,28 @@
+<div class="con">
+<mat-tab-group >
+  <mat-tab label="First" class="pg">
+    <div fxLayout="row" fxLayoutGap="10px" fxLayout.lt-md="column">
+      <div fxFlex="50%" fxLayout.lt-md="column">
+        <mat-label fxFlex="40%">Employee Code</mat-label>
+        <mat-form-field appearance="outline" fxFlex="60%">
+          <input matInput >
+          <!-- <mat-error *ngIf="EmployeeRegistration?.get('employeecode')?.hasError('required')">
+            {{message?.FIELD_REQUIRED}}
+          </mat-error>
+          <mat-error *ngIf="EmployeeRegistration?.get('employeecode')?.hasError('pattern')">
+            {{message?.INVALID_DATA}}
+          </mat-error> -->
+        </mat-form-field>
+      </div>
+      <div fxFlex="50%" fxLayout.lt-md="column">
+        <mat-label fxFlex="40%">First Name</mat-label>
+        <mat-form-field appearance="outline" fxFlex="60%">
+          <input matInput>
+        </mat-form-field>
+      </div>
+    </div>
+    </mat-tab>
+  <mat-tab label="Second"> Content 2 </mat-tab>
+  <mat-tab label="Third"> Content 3 </mat-tab>
+</mat-tab-group>
+</div>

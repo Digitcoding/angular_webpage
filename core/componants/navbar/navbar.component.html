@@ -1,0 +1,41 @@
+<div style="height: 80vh;" fxFlex="100%">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <!-- <span class="logo"><img src="../assets/logo.png" style="width:45px; height:50px; padding-top:10px"></span> -->
+      <span class="nav-heading">Zenyo Workforce</span>
+      <!-- <span class="menu-spacer"></span> -->
+      <div fxLayout="row" fxLayoutAlign="center center" class="nav-bar" fxLayoutGap="10px">
+        <span class="material-icons" style="color: rgb(255, 255, 255);"> notifications </span>
+        <mat-icon>add</mat-icon>
+        <img src="../assets/logo.png" class="my-profile" routerLink="/signin">
+      </div>
+
+      <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container fxFlexFill>
+    <mat-sidenav #sidenav mode="side">
+      <mat-nav-list fxLayout="column" fxLayoutGap="10px">
+
+        <a href="#" mat-list-item routerLink="signin" class="sidenav-icon"><span><mat-icon
+              fxFlex="30px">pie_chart_outline</mat-icon>Signin</span></a>
+        <a href="#" mat-list-item routerLink="info"> <mat-icon fxFlex="30px">perm_identity</mat-icon>My Info</a>
+        <a href="#" mat-list-item routerLink="timesheet"> <mat-icon
+            fxFlex="30px">history_toggle_off</mat-icon>Timesheet</a>
+        <a href="#" mat-list-item routerLink="absent"><mat-icon fxFlex="30px">wysiwyg</mat-icon>Absent Management</a>
+
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+
+
+</div>

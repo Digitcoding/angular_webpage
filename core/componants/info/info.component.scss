@@ -1,0 +1,42 @@
+.start {
+  border: 1px solid #D6D2D2;
+  padding: 20px;
+  background-color: white;
+  font-size: 10px;
+  font-weight: lighter;
+  color: #058F3F;
+ 
+}
+.start button{
+  margin: 5px;
+}
+.container {
+  padding-left: 30px;
+  margin-top: 20px;
+  padding-right:  30px;
+}
+.small {
+  border: 1px solid #D6D2D2;
+  height: 100px;
+}
+#gen-button {
+  background-color: #FCBA03;
+  color: black;
+}
+a:active {
+  color: black;
+  background-color: #FCBA03;
+  text-decoration: none;
+}
+
+a:link {
+
+  text-decoration: none;
+}
+
+.active-btn {
+  background-color: green;
+  color: white !important;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}

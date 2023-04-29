@@ -1,0 +1,61 @@
+<!-- <mat-stepper linear #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Shopping Cart </ng-template>
+      <div>Select Payment Method</div>
+     
+      <mat-form-field appearance="outline">
+        <mat-label>Card Number</mat-label>
+        <input matInput formControlName="firstCtrl"  required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Fill out your address</ng-template>
+      <mat-form-field appearance="outline">
+        <mat-label>Address</mat-label>
+        <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-stepper> -->
+<!-- directive practict -->
+<!-- <div *ngFor="let detail of details"  [ngClass]="detail.istrue ? 'green':'red'">
+ <div >{{detail.name|uppercase}}</div> 
+ <div >{{detail.age|uppercase}}</div> 
+</div> -->
+<!-- <div [ngClass]="true ? 'green':'red'" >This is true class</div>
+<div [ngStyle]="green">
+  This div is initially italic, normal weight, and extra large (24px).
+</div>
+<div [ngStyle]="red">
+  This div is initially italic, normal weight, and extra large (24px).
+</div>
+<div *ngFor="let detail of details">
+  <div *ngIf="detail.name">
+    {{detail.age}}
+  </div>
+  <div [ngSwitch]="detail.name">
+    <div *ngSwitchCase="'parameswari'">
+      <div>{{detail.age}}</div>
+    </div>
+  </div>
+</div> -->
+<button (click)="oncall()">snackbar</button>
+<app-snackbarpractice *ngIf="show"></app-snackbarpractice>

@@ -1,0 +1,29 @@
+<div class="example-container">
+ 
+
+  <div
+    cdkDropList
+    #todoList="cdkDropList"
+    [cdkDropListData]="header"
+ 
+    
+    (cdkDropListDropped)="drop($event)">
+    <div class="top" *ngFor="let item of header" cdkDrag><mat-list class="top1">{{item.new}}</mat-list><mat-divider></mat-divider></div>
+    <div class="top" *ngFor="let item of header" cdkDrag><mat-list class="top1">{{item.jobs}}</mat-list><mat-divider></mat-divider></div>
+    <div class="top" *ngFor="let item of header" cdkDrag><mat-list class="top1">{{item.newhires}}</mat-list><mat-divider></mat-divider></div>
+  </div>
+  <div color="primary" mat-raised-button (click)="onsubmit()">Dialog</div>
+</div>
+<ng-template #delete>
+<h2 mat-dialog-title>Confirmation</h2>
+<mat-dialog-content class="mat-typography">
+
+  <p>Are you sure you want to exit?</p>
+
+ 
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-stroked-button mat-dialog-close [mat-dialog-close]="false">No</button>
+  <button mat-raised-button color="primary" [mat-dialog-close]="true" >Yes</button>
+</mat-dialog-actions>
+</ng-template>
